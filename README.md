@@ -30,5 +30,4 @@ Then I try to push something to that repo:
 git push -u ABC-origin master
 ```
 
-
-abcde
+Enjoy! 
