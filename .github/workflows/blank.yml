@@ -33,10 +33,9 @@ jobs:
         if: env.URL== 'http://localhost'
       - name: Print the result
         run: echo "OK" 
-      - run: "${URL}"
+      - run: echo "${URL}"
         name: print expression
-      - run: env.URL
-        name: print variable
+
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
