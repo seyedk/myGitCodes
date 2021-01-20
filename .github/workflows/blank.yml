@@ -28,14 +28,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      - name: set env. varialbe
-        run: echo "::set-env name=URL::http://localhost"
-        if: env.URL== 'http://localhost'
-      - name: Print the result
-        run: echo "OK" 
-      - run: echo "${URL}"
-        name: print expression
-
+      - if: github.ref== 'refs/heads/FixDev'
+        env:
+          URL: http://fixdev.com
+      - if: github.ref== 'refs/heads/main'
+        env:
+          URL: http://prod.com
+      - run: echo ${URL}  
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
