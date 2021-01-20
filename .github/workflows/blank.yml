@@ -28,10 +28,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      - if: github.ref== 'refs/heads/FixDev'
+      - if: github.ref == 'refs/heads/FixDev'
+        name: set env variable if in DEV Branch
         env:
           URL: http://fixdev.com
-      - if: github.ref== 'refs/heads/main'
+      - if: github.ref == 'refs/heads/main'
+        name: set env variable if in PROD Branch
         env:
           URL: http://prod.com
       - run: echo ${URL}  
