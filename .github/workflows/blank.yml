@@ -32,10 +32,12 @@ jobs:
         name: set env variable if in DEV Branch
         env:
           URL: http://fixdev.com
+        run: echo "$URL"
       - if: github.ref == 'refs/heads/main'
         name: set env variable if in PROD Branch
         env:
           URL: http://prod.com
+        run: echo "$URL"
       - run: echo ${URL}  
 
       # Runs a set of commands using the runners shell
